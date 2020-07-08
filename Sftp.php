@@ -17,8 +17,8 @@ class Sftp {
     public function __construct($config)
     {
         if( !$this->ressftp ){
-            $this->conn = ssh2_connect($config->host, $config->port);
-            if (ssh2_auth_password($this->conn, $config->username, $config->password)) {
+            $this->conn = ssh2_connect($config['host'], $config['port']);
+            if (ssh2_auth_password($this->conn, $config['username'], $config['password'])) {
                 $this->ressftp = ssh2_sftp($this->conn);//启动引力传动系统
             } else {
                 echo "用户名或密码错误";die;
