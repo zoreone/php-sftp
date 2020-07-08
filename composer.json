@@ -15,7 +15,7 @@
     },
     "autoload":{
         "psr-4":{
-            "Zoreone\\Sftp\\":"Sftp"
+            "Zoreone\\Sftp\\":"src/Zoreone/Sftp"
         }
     }
 }
