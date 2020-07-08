@@ -1,0 +1,21 @@
+{
+    "name": "zoreone/php-sftp",
+    "description": "zoreone && php",
+    "type": "library",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "zoreone",
+            "email": "zhdhxm@163.com"
+        }
+    ],
+    "minimum-stability": "dev",
+    "require": {
+        "php" : ">=5.6"
+    },
+    "autoload":{
+        "psr-4":{
+            "Zoreone\\Sftp\\":"src/Zoreone/Sftp"
+        }
+    }
+}
