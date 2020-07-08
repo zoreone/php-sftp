@@ -14,14 +14,30 @@ class Sftp {
     private $ressftp = NULL;
 
     // 初始化
-    public function __construct($config)
+    public function __construct($host,$port,$username,$password)
     {
         if( !$this->ressftp ){
-            $this->conn = ssh2_connect($config['host'], $config['port']);
-            if (ssh2_auth_password($this->conn, $config['username'], $config['password'])) {
+            if (empty($host)) {
+                throw new \Exception("host is empty");
+            }
+
+            if (empty($port)) {
+                throw new \Exception("port is empty");
+            }
+
+            if (empty($username)) {
+                throw new \Exception("username is empty");
+            }
+
+            if (empty($password)) {
+                throw new \Exception("password is empty");
+            }
+
+            $this->conn = ssh2_connect($host, $port);
+            if (ssh2_auth_password($this->conn, $username, $password)) {
                 $this->ressftp = ssh2_sftp($this->conn);//启动引力传动系统
             } else {
-                echo "用户名或密码错误";die;
+                throw new \Exception("username or password is error");
             }
         }
 
