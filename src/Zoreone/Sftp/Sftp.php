@@ -21,7 +21,7 @@ class Sftp {
             if (ssh2_auth_password($this->conn, $config->username, $config->password)) {
                 $this->ressftp = ssh2_sftp($this->conn);//启动引力传动系统
             } else {
-                throw new \Exception("用户名或密码错误");
+                echo "用户名或密码错误";die;
             }
         }
 
